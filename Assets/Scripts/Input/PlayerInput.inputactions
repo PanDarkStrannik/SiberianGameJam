@@ -1,0 +1,118 @@
+{
+    "name": "PlayerInput",
+    "maps": [
+        {
+            "name": "PointerPressedMove",
+            "id": "0b0c504c-1d4d-48b5-a653-741c10cafb8a",
+            "actions": [
+                {
+                    "name": "Pointer Move",
+                    "type": "Value",
+                    "id": "d82db50e-5c30-4cca-9d86-445fa5a52778",
+                    "expectedControlType": "Vector2",
+                    "processors": "StickDeadzone",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "One Modifier",
+                    "id": "b954f4e9-06d6-4d84-9b90-82163dd46cfb",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pointer Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "295878cd-6cd4-4e46-a2e2-7d279e8c8c6c",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Pointer Control Scheme",
+                    "action": "Pointer Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "eb37a535-a51c-4d17-b41e-a61eadc0b348",
+                    "path": "<Pointer>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Pointer Control Scheme",
+                    "action": "Pointer Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "WS",
+            "id": "e70dfeea-3352-4084-95d2-53f5b9dc0123",
+            "actions": [
+                {
+                    "name": "WS",
+                    "type": "Value",
+                    "id": "fbf1bcd4-ca36-46e2-aaf1-801d354b564b",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "1D Axis",
+                    "id": "252c67b8-ea24-4cf0-b379-54a7adeac4cb",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WS",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "0d18bfa4-7878-435a-9553-cbc6718b744a",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WS",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "cd8fa17b-0ac6-4585-9f33-3d33b1b63a9d",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WS",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Pointer Control Scheme",
+            "bindingGroup": "Pointer Control Scheme",
+            "devices": [
+                {
+                    "devicePath": "<Pointer>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
