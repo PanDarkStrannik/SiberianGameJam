@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FirstTaskLogic : MonoBehaviour
 {
-    [ShowInInspector] private List<QuoteOnDoor> _quotes;
+    [ShowInInspector, ReadOnly] private List<QuoteOnDoor> _quotes;
 
     private readonly HashSet<QuoteOnDoor> _alreadyInit = new();
 

@@ -64,7 +64,7 @@ MonoBehaviour:
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
   m_YDamping: 0
-  m_ZDamping: 1
+  m_ZDamping: 0
   m_CameraUp: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 6779193707550726087}
   - component: {fileID: 6779193707550726089}
   - component: {fileID: 6779193707550726090}
+  - component: {fileID: 5293694050255599797}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -183,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d37e5385efd7064cb1d54c94960acae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Resolution: 20
+  m_Resolution: 50
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
     inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -225,7 +226,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.1901858, y: 1}
+    m_SensorSize: {x: 4.058416, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -249,3 +250,15 @@ MonoBehaviour:
   PlayerIndex: -1
   XYAxis: {fileID: 5033743266649017810, guid: d465533f12f5d6e4b9bdaffedb384b55, type: 3}
   ZAxis: {fileID: 0}
+--- !u!114 &5293694050255599797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6779193707550726086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5560d583f2f696643a859467f8d8d16a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

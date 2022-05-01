@@ -79,18 +79,18 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""WS"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""fbf1bcd4-ca36-46e2-aaf1-801d354b564b"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": ""1D Axis"",
-                    ""id"": ""252c67b8-ea24-4cf0-b379-54a7adeac4cb"",
+                    ""id"": ""112933d0-b47e-4617-84d6-2914b04a145e"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -100,8 +100,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""0d18bfa4-7878-435a-9553-cbc6718b744a"",
+                    ""name"": ""Negative"",
+                    ""id"": ""a648c543-dba3-41a5-8614-dc9790fc7a17"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -111,8 +111,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""cd8fa17b-0ac6-4585-9f33-3d33b1b63a9d"",
+                    ""name"": ""Positive"",
+                    ""id"": ""e9832d82-3c81-484d-8d11-9c46ede381a3"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
