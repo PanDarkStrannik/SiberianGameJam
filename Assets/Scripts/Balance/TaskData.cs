@@ -27,4 +27,6 @@ public class ThirdDoorTaskData
 {
     [field: SerializeField, Min(1)] public float maxSprayValue { get; } = 1;
     [field: SerializeField, Min(0)] public float sparaySpending { get; } = 0.1f;
+
+    [field:SerializeField] public Material sprayMaterial { get; }
 }

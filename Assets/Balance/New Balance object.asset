@@ -15,7 +15,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 2100000, guid: 727263010e343a848b22acba6ef5dfa5, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -89,6 +90,9 @@ MonoBehaviour:
     - Name: <sparaySpending>k__BackingField
       Entry: 4
       Data: 0.1
+    - Name: <sprayMaterial>k__BackingField
+      Entry: 10
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
