@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -65,5 +67,61 @@ public static class TMP_TextEx
     public static void Replace<T>(this TMP_Text target, string toReplace, T value)
     {
         target.text = target.text.Replace(toReplace, value.ToString());
+    }
+}
+
+public class Linker<Cell,Plate>
+{
+    public delegate void LinkerEvent(Cell cell, Plate plate);
+
+    private HashSet<Link> _links = new();
+
+    public int Count => _links.Count;
+
+    public event LinkerEvent onAdd;
+    public event LinkerEvent onRemove;
+
+    public void Add(Cell cell, Plate plate)
+    {
+        _links.Add(new(cell, plate));
+        onAdd?.Invoke(cell, plate);
+    }
+
+    public void Remove(Link link)
+    {
+        _links.Remove(link);
+        onRemove?.Invoke(link.cell, link.plate);
+    }
+
+    public Link Find(Cell cell) { return _links.FirstOrDefault(c => c.cell.Equals(cell)); }
+    public Link Find(Plate plate) { return _links.FirstOrDefault(c => c.plate.Equals(plate)); }
+
+    public bool Contains(Cell cell) { return Find(cell) != null; }
+    public bool Contains(Plate plate) { return Find(plate) != null; }
+
+    public Link Extract(Cell cell)
+    {
+        var result = Find(cell);
+        if (result != null) Remove(result);
+        return result;
+    }
+
+    public Link Extract(Plate plate)
+    {
+        var result = Find(plate);
+        if (result != null) Remove(result);
+        return result;
+    }
+
+    public class Link
+    {
+        public readonly Cell cell;
+        public readonly Plate plate;
+
+        public Link(Cell cell, Plate plate)
+        {
+            this.cell = cell;
+            this.plate = plate;
+        }
     }
 }
