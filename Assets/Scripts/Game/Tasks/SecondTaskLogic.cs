@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SecondTaskLogic : MonoBehaviour
+public class SecondTaskLogic : TaskLogic
 {
     [SerializeField] private Canvas _canvas;
     [SerializeField] private List<RectTransform> _emptyChoruses;
@@ -101,11 +101,11 @@ public class SecondTaskLogic : MonoBehaviour
                 Debug.Log("Guessed!");
                 if (_linker.Count == 4)
                 {
-                    FinishSecondTask();
+                    FinishTask();
                 }
                 return;
             }
-            Debug.Log("Guessed wrong :(");
+            GameManager.instance.healthManager.ApplyDamage();
         }
         MovePlate(plate, _beginDragPos);
     }
@@ -117,11 +117,5 @@ public class SecondTaskLogic : MonoBehaviour
             return;
         plate.transform.position = target;
     }
-
-    private void FinishSecondTask()
-    {
-        Debug.Log("Second task finished!");
-    }
-
 
 }

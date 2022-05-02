@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ThirdTaskLogic : MonoBehaviour
+public class ThirdTaskLogic : TaskLogic
 {
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Drawer _drawer;

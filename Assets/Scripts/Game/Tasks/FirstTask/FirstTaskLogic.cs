@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class FirstTaskLogic : MonoBehaviour
+
+public class FirstTaskLogic : TaskLogic
 {
     [ShowInInspector, ReadOnly] private List<QuoteOnDoor> _quotes;
 
@@ -45,6 +48,11 @@ public class FirstTaskLogic : MonoBehaviour
         if (quoteOnDoor.quote == _taskData.trueQuote)
         {
             Debug.Log("Door must be opened!");
+            FinishTask();
+        }
+        else
+        {
+            GameManager.instance.healthManager.ApplyDamage();
         }
     }
 }
