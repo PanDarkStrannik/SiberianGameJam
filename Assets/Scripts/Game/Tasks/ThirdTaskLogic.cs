@@ -11,6 +11,7 @@ public class ThirdTaskLogic : TaskLogic
 
     private ThirdDoorTaskData _thirdTaskData;
 
+
     private void Start()
     {
         _thirdTaskData = GameManager.instance.balance.thirdTask;

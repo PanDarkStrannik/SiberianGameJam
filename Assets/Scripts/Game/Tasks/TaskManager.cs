@@ -46,9 +46,16 @@ public abstract class TaskLogic : MonoBehaviour
 
     public event Action<TaskLogic> onTaskFinished;
 
+    private TaskAnimation _taskAnimation;
+
     public abstract int taskSortNum { get; }
 
     protected TaskState currentState { get; private set; } = TaskState.InActive;
+
+    private void Awake()
+    {
+        _taskAnimation = GetComponentInChildren<TaskAnimation>();
+    }
 
     public void StartTask()
     {
@@ -59,6 +66,11 @@ public abstract class TaskLogic : MonoBehaviour
     {
         currentState = TaskState.Finished;
         onTaskFinished?.Invoke(this);
+        _taskAnimation.StartAnimation(KillSelf);
+    }
+
+    private void KillSelf()
+    {
         Destroy(gameObject);
     }
 
