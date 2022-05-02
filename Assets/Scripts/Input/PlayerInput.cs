@@ -52,7 +52,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""modifier"",
                     ""id"": ""295878cd-6cd4-4e46-a2e2-7d279e8c8c6c"",
-                    ""path"": ""<Pointer>/press"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Pointer Control Scheme"",
