@@ -11,4 +11,5 @@ public class LivesOverUI : MonoBehaviour
         _quitButton.onClick.AddListener(GameSceneManager.instance.Quit);
         _restartButton.onClick.AddListener(GameSceneManager.instance.LoadGameScene);
     }
+
 }
