@@ -6033,21 +6033,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5293694050255599797, guid: a2d39fe4adaf561438718d2b785d25fc, type: 3}
-      propertyPath: _movementStep
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779193706329337067, guid: a2d39fe4adaf561438718d2b785d25fc, type: 3}
-      propertyPath: m_PathPosition
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6779193707550726086, guid: a2d39fe4adaf561438718d2b785d25fc, type: 3}
       propertyPath: m_Name
       value: Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779193707550726087, guid: a2d39fe4adaf561438718d2b785d25fc, type: 3}
-      propertyPath: m_Waypoints.Array.data[1].position.z
-      value: 19.227869
       objectReference: {fileID: 0}
     - target: {fileID: 6779193707550726088, guid: a2d39fe4adaf561438718d2b785d25fc, type: 3}
       propertyPath: m_RootOrder
@@ -6092,10 +6080,6 @@ PrefabInstance:
     - target: {fileID: 6779193707550726088, guid: a2d39fe4adaf561438718d2b785d25fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779193707550726089, guid: a2d39fe4adaf561438718d2b785d25fc, type: 3}
-      propertyPath: m_Lens.m_SensorSize.x
-      value: 1.1890244
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2d39fe4adaf561438718d2b785d25fc, type: 3}

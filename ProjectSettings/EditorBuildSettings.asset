@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Balance/Scenes/TestScene.unity
+    path: Assets/Balance/Scenes/StartScene.unity
+    guid: 9dc4dbd9153f236428a366e92bc8d9b7
+  - enabled: 1
+    path: Assets/Balance/Scenes/GameScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Balance/Scenes/AnimScene.unity
+    guid: d3c65f5b6c25c2648a4587c6f339a9e6
+  - enabled: 1
+    path: Assets/Balance/Scenes/EndScene.unity
+    guid: 881f2b3f6e6dd3441b652eec5e159169
   m_configObjects: {}

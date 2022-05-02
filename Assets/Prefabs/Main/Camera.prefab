@@ -89,8 +89,8 @@ MonoBehaviour:
   m_RecenterTarget: 0
   m_VerticalAxis:
     Value: 0
-    m_SpeedMode: 0
-    m_MaxSpeed: 100
+    m_SpeedMode: 1
+    m_MaxSpeed: 1
     m_AccelTime: 0
     m_DecelTime: 0
     m_InputAxisName: Mouse Y
@@ -113,8 +113,8 @@ MonoBehaviour:
     m_LegacyVelocityFilterStrength: -1
   m_HorizontalAxis:
     Value: 0
-    m_SpeedMode: 0
-    m_MaxSpeed: 100
+    m_SpeedMode: 1
+    m_MaxSpeed: 1
     m_AccelTime: 0
     m_DecelTime: 0
     m_InputAxisName: Mouse X
@@ -194,7 +194,7 @@ MonoBehaviour:
   - position: {x: 0, y: 0, z: -6.437936}
     tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: 0, y: 0, z: 8.50115}
+  - position: {x: 0, y: 0, z: 19.227869}
     tangent: {x: 0, y: 0, z: 0}
     roll: 0
 --- !u!114 &6779193707550726089
@@ -226,7 +226,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 4.058416, y: 1}
+    m_SensorSize: {x: 1.2633566, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -262,3 +262,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5560d583f2f696643a859467f8d8d16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementStep: 0.3

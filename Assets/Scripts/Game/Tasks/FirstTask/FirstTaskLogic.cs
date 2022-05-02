@@ -47,7 +47,6 @@ public class FirstTaskLogic : TaskLogic
     {
         if (quoteOnDoor.quote == _taskData.trueQuote)
         {
-            Debug.Log("Door must be opened!");
             FinishTask();
         }
         else

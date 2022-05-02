@@ -57,6 +57,7 @@ public abstract class TaskLogic : MonoBehaviour
     {
         currentState = TaskState.Finished;
         onTaskFinished?.Invoke(this);
+        Destroy(gameObject);
     }
 
     public enum TaskState
