@@ -22,18 +22,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: <cameraSettings>k__BackingField
-      Entry: 7
-      Data: CameraSettings, Assembly-CSharp
-    - Name: movementSpeed
-      Entry: 4
-      Data: 0.1
-    - Name: rotateSpeed
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: <firstTask>k__BackingField
       Entry: 7
       Data: 0|FirstDoorTaskData, Assembly-CSharp
@@ -86,7 +74,7 @@ MonoBehaviour:
       Data: 3|ThirdDoorTaskData, Assembly-CSharp
     - Name: <maxSprayValue>k__BackingField
       Entry: 4
-      Data: 1
+      Data: 50
     - Name: <sparaySpending>k__BackingField
       Entry: 4
       Data: 0.1

@@ -11,6 +11,7 @@ public class ThirdTaskLogic : TaskLogic
 
     private ThirdDoorTaskData _thirdTaskData;
 
+    private float _counter=0;
 
     private void Start()
     {
@@ -20,18 +21,25 @@ public class ThirdTaskLogic : TaskLogic
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if(currentState != TaskState.Active)
+            return;
         var startPoint = CalculateDotFromInputOnCanvas(eventData);
 
-        _currentLineRenderer = new GameObject("Line", typeof(LineRenderer)).GetComponent<LineRenderer>();
+        var newGameObject = new GameObject("Line", typeof(LineRenderer));
+        newGameObject.transform.SetParent(_drawer.transform);
+        _currentLineRenderer = newGameObject.GetComponent<LineRenderer>();
         _currentLineRenderer.material = _thirdTaskData.sprayMaterial;
         _currentLineRenderer.startWidth = 0.1f;
         _currentLineRenderer.endWidth = 0.1f;
         _currentLineRenderer.positionCount = 0;
+        _currentLineRenderer.useWorldSpace = false;
         AddPointToLineRenderer(startPoint);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (currentState != TaskState.Active)
+            return;
         var calculatedPoint = CalculateDotFromInputOnCanvas(eventData);
         var lastPoint = _currentLineRenderer.GetPosition(_currentLineRenderer.positionCount - 1);
         if (Vector3.Distance(lastPoint,calculatedPoint) >= _minDistanceBetweenPoints)
@@ -42,6 +50,8 @@ public class ThirdTaskLogic : TaskLogic
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (currentState != TaskState.Active)
+            return;
         var calculatePoint = CalculateDotFromInputOnCanvas(eventData);
         AddPointToLineRenderer(calculatePoint);
     }
@@ -51,6 +61,9 @@ public class ThirdTaskLogic : TaskLogic
     {
         _currentLineRenderer.positionCount++;
         _currentLineRenderer.SetPosition(_currentLineRenderer.positionCount - 1, point);
+        _counter += _thirdTaskData.sparaySpending;
+        if(_counter >= _thirdTaskData.maxSprayValue)
+            FinishTask();
     }
 
     private Vector3 CalculateDotFromInputOnCanvas(PointerEventData eventData)
