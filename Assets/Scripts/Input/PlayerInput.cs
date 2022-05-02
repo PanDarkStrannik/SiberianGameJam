@@ -122,6 +122,34 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Escape"",
+            ""id"": ""baad62e8-e0a6-48ab-98a0-fefe77f1cfce"",
+            ""actions"": [
+                {
+                    ""name"": ""ESC"",
+                    ""type"": ""Button"",
+                    ""id"": ""138b92dd-8ff5-4489-ae1f-8da0e82ce8ef"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c563810e-5273-438f-8899-8b03027542fa"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ESC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -144,6 +172,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         // WS
         m_WS = asset.FindActionMap("WS", throwIfNotFound: true);
         m_WS_WS = m_WS.FindAction("WS", throwIfNotFound: true);
+        // Escape
+        m_Escape = asset.FindActionMap("Escape", throwIfNotFound: true);
+        m_Escape_ESC = m_Escape.FindAction("ESC", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -265,6 +296,39 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public WSActions @WS => new WSActions(this);
+
+    // Escape
+    private readonly InputActionMap m_Escape;
+    private IEscapeActions m_EscapeActionsCallbackInterface;
+    private readonly InputAction m_Escape_ESC;
+    public struct EscapeActions
+    {
+        private @PlayerInput m_Wrapper;
+        public EscapeActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ESC => m_Wrapper.m_Escape_ESC;
+        public InputActionMap Get() { return m_Wrapper.m_Escape; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(EscapeActions set) { return set.Get(); }
+        public void SetCallbacks(IEscapeActions instance)
+        {
+            if (m_Wrapper.m_EscapeActionsCallbackInterface != null)
+            {
+                @ESC.started -= m_Wrapper.m_EscapeActionsCallbackInterface.OnESC;
+                @ESC.performed -= m_Wrapper.m_EscapeActionsCallbackInterface.OnESC;
+                @ESC.canceled -= m_Wrapper.m_EscapeActionsCallbackInterface.OnESC;
+            }
+            m_Wrapper.m_EscapeActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @ESC.started += instance.OnESC;
+                @ESC.performed += instance.OnESC;
+                @ESC.canceled += instance.OnESC;
+            }
+        }
+    }
+    public EscapeActions @Escape => new EscapeActions(this);
     private int m_PointerControlSchemeSchemeIndex = -1;
     public InputControlScheme PointerControlSchemeScheme
     {
@@ -281,5 +345,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     public interface IWSActions
     {
         void OnWS(InputAction.CallbackContext context);
+    }
+    public interface IEscapeActions
+    {
+        void OnESC(InputAction.CallbackContext context);
     }
 }
