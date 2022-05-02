@@ -64,4 +64,6 @@ public class ThirdTaskLogic : TaskLogic
             ? canvasTransform.ClampPosition(position,Vector2.zero)
             : canvasTransform.position;
     }
+
+    public override int taskSortNum => 3;
 }

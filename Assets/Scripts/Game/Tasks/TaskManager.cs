@@ -46,6 +46,8 @@ public abstract class TaskLogic : MonoBehaviour
 
     public event Action<TaskLogic> onTaskFinished;
 
+    public abstract int taskSortNum { get; }
+
     protected TaskState currentState { get; private set; } = TaskState.InActive;
 
     public void StartTask()

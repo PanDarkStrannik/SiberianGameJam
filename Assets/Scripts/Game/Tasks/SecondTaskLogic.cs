@@ -118,4 +118,5 @@ public class SecondTaskLogic : TaskLogic
         plate.transform.position = target;
     }
 
+    public override int taskSortNum => 2;
 }

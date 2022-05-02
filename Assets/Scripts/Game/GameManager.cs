@@ -1,4 +1,6 @@
+using System.Linq;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 
 public class GameManager : SerializedMonoBehaviour
@@ -29,8 +31,7 @@ public class GameManager : SerializedMonoBehaviour
     {
         healthManager = new();
         var tasks = FindObjectsOfType<TaskLogic>();
-        Debug.Log(tasks.Length);
-        taskManager = new TaskManager(tasks);
+        taskManager = new TaskManager(tasks.OrderByDescending(task=>task.taskSortNum));
     }
 
 }

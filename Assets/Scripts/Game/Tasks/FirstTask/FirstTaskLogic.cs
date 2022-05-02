@@ -54,4 +54,6 @@ public class FirstTaskLogic : TaskLogic
             GameManager.instance.healthManager.ApplyDamage();
         }
     }
+
+    public override int taskSortNum => 1;
 }
