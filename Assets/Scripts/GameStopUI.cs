@@ -10,8 +10,8 @@ public class GameStopUI : MonoBehaviour
 
     private void Awake()
     {
-        _closeButton.onClick.AddListener(DestroySelf);
-        _quitButton.onClick.AddListener(GameSceneManager.instance.Quit);
+        _closeButton.onClick.AddListener(CloseButtonClicked);
+        _quitButton.onClick.AddListener(Quit);
         StartCoroutine(ToDestroyCorut());
     }
 
@@ -22,6 +22,19 @@ public class GameStopUI : MonoBehaviour
         DestroySelf();
     }
 
+
+    private void CloseButtonClicked()
+    {
+        AudioManager.instance.ButtonClickAudio();
+        DestroySelf();
+    }
+
+
+    private void Quit()
+    {
+        AudioManager.instance.ButtonClickAudio();
+        GameSceneManager.instance.Quit();
+    }
 
     private void DestroySelf()
     {

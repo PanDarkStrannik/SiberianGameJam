@@ -16,6 +16,10 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 8300000, guid: 9e2be881b037f0e47aea5e618ac5f69f, type: 3}
+    - {fileID: 8300000, guid: 0c08036d3a0be594f99917b1a21e39d6, type: 3}
+    - {fileID: 8300000, guid: 1a00ce08f3182da4aa24b68eb040fe4f, type: 3}
+    - {fileID: 8300000, guid: d81a656cec573494c958ae6fe4e3445d, type: 3}
     - {fileID: 2100000, guid: 727263010e343a848b22acba6ef5dfa5, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -25,6 +29,12 @@ MonoBehaviour:
     - Name: <firstTask>k__BackingField
       Entry: 7
       Data: 0|FirstDoorTaskData, Assembly-CSharp
+    - Name: <temeStart>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <temeLoop>k__BackingField
+      Entry: 10
+      Data: 1
     - Name: <trueQuote>k__BackingField
       Entry: 1
       Data: "\u041F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u0430\u044F \u0444\u0440\u0430\u0437\u0430"
@@ -42,6 +52,12 @@ MonoBehaviour:
     - Name: <secondTask>k__BackingField
       Entry: 7
       Data: 1|SecondDoorTaskData, Assembly-CSharp
+    - Name: <temeStart>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <temeLoop>k__BackingField
+      Entry: 10
+      Data: 2
     - Name: _chorusParts
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
@@ -72,6 +88,12 @@ MonoBehaviour:
     - Name: <thirdTask>k__BackingField
       Entry: 7
       Data: 3|ThirdDoorTaskData, Assembly-CSharp
+    - Name: <temeStart>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <temeLoop>k__BackingField
+      Entry: 10
+      Data: 3
     - Name: <maxSprayValue>k__BackingField
       Entry: 4
       Data: 50
@@ -80,7 +102,7 @@ MonoBehaviour:
       Data: 0.1
     - Name: <sprayMaterial>k__BackingField
       Entry: 10
-      Data: 0
+      Data: 4
     - Name: 
       Entry: 8
       Data: 

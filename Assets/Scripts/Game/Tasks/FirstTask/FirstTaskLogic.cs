@@ -8,13 +8,14 @@ using Random = UnityEngine.Random;
 
 public class FirstTaskLogic : TaskLogic
 {
+    [SerializeField] private GameObject _helpfullWin;
     [ShowInInspector, ReadOnly] private List<QuoteOnDoor> _quotes;
 
     private readonly HashSet<QuoteOnDoor> _alreadyInit = new();
 
     private FirstDoorTaskData _taskData;
 
-    private void Start()
+    protected override void StartTaskInternal()
     {
         _quotes = new List<QuoteOnDoor>(gameObject.GetComponentsInChildren<QuoteOnDoor>());
         switch (_quotes.Count)
@@ -31,9 +32,8 @@ public class FirstTaskLogic : TaskLogic
         RandomInitialize(_taskData.trueQuote);
         RandomInitialize(_taskData.falseQuote1);
         RandomInitialize(_taskData.falseQuote2);
+        PlayTem(_taskData);
     }
-
-
     private void RandomInitialize(string quote)
     {
         var newRandomList = _quotes.Except(_alreadyInit).ToList();
@@ -52,6 +52,7 @@ public class FirstTaskLogic : TaskLogic
         else
         {
             GameManager.instance.healthManager.ApplyDamage();
+            _helpfullWin.gameObject.SetActive(true);
         }
     }
 

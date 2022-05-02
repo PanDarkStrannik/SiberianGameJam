@@ -8,8 +8,20 @@ public class LivesOverUI : MonoBehaviour
 
     private void Awake()
     {
-        _quitButton.onClick.AddListener(GameSceneManager.instance.Quit);
-        _restartButton.onClick.AddListener(GameSceneManager.instance.LoadGameScene);
+        _quitButton.onClick.AddListener(Quit);
+        _restartButton.onClick.AddListener(LoadGameScene);
     }
 
+
+    public void LoadGameScene()
+    {
+        AudioManager.instance.ButtonClickAudio();
+        GameSceneManager.instance.LoadGameScene();
+    }
+
+    public void Quit()
+    {
+        AudioManager.instance.ButtonClickAudio();
+        GameSceneManager.instance.Quit();
+    }
 }

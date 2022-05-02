@@ -4,7 +4,7 @@ public class HealthManager
 {
     public const int maxHealth = 3;
 
-    public Action<HealthManager> onHealthChanged;
+    public event Action<HealthManager> onHealthChanged;
 
     public int currentHealth { get; private set; } = maxHealth;
 
@@ -12,6 +12,7 @@ public class HealthManager
     {
         currentHealth--;
         onHealthChanged?.Invoke(this);
+        AudioManager.instance.PankScream();
         if (currentHealth <= 0)
         {
             GameManager.instance.uiManager.ShowLoseUI();

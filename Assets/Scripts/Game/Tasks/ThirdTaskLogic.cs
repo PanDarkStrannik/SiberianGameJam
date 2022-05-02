@@ -13,10 +13,11 @@ public class ThirdTaskLogic : TaskLogic
 
     private float _counter=0;
 
-    private void Start()
+    protected override void StartTaskInternal()
     {
         _thirdTaskData = GameManager.instance.balance.thirdTask;
         _drawer.Initialize(this);
+        PlayTem(_thirdTaskData);
     }
 
     public void OnBeginDrag(PointerEventData eventData)

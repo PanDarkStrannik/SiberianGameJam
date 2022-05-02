@@ -60,6 +60,14 @@ public abstract class TaskLogic : MonoBehaviour
     public void StartTask()
     {
         currentState = TaskState.Active;
+        StartTaskInternal();
+    }
+
+    protected abstract void StartTaskInternal();
+
+    protected void PlayTem(TaskData tem)
+    {
+        AudioManager.instance.StartTem(tem.temeStart, tem.temeLoop);
     }
 
     public void FinishTask()
