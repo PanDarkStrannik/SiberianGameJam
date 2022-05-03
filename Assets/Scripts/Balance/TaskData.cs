@@ -15,9 +15,9 @@ public abstract class TaskData
 [HideReferenceObjectPicker]
 public class FirstDoorTaskData : TaskData
 {
-    [field:SerializeField, TabGroup("Task"), TextArea] public string trueQuote { get; }
-    [field:SerializeField, TabGroup("Task"), TextArea] public string falseQuote1 { get; }
-    [field:SerializeField, TabGroup("Task"), TextArea] public string falseQuote2 { get; }
+    [field:SerializeField, TabGroup("Task")] public Sprite trueQuote { get; }
+    [field:SerializeField, TabGroup("Task")] public Sprite falseQuote1 { get; }
+    [field:SerializeField, TabGroup("Task")] public Sprite falseQuote2 { get; }
 }
 [HideReferenceObjectPicker]
 public class SecondDoorTaskData : TaskData

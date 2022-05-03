@@ -36,15 +36,15 @@ public class FirstTaskLogic : TaskLogic
 
     protected override void ShowTaskInternal()
     {
-        _quotes.ForEach(quote=>quote.gameObject.SetActive(true));
+        _quotes.ForEach(quote=>quote.ChangeInteractive(true));
     }
 
     protected override void HideTaskInternal()
     {
-        _quotes.ForEach(quote => quote.gameObject.SetActive(false));
+        _quotes.ForEach(quote => quote.ChangeInteractive(false));
     }
 
-    private void RandomInitialize(string quote)
+    private void RandomInitialize(Sprite quote)
     {
         var newRandomList = _quotes.Except(_alreadyInit).ToList();
         var randValue = Random.Range(0, newRandomList.Count);

@@ -46,11 +46,13 @@ public class SecondTaskLogic : TaskLogic
 
     protected override void ShowTaskInternal()
     {
+        _emptyChoruses.ForEach(empty=>empty.gameObject.SetActive(true));
         _chorusPartPlates.ForEach(chorus=>chorus.gameObject.SetActive(true));
     }
 
     protected override void HideTaskInternal()
     {
+        _emptyChoruses.ForEach(empty => empty.gameObject.SetActive(false));
         _chorusPartPlates.ForEach(chorus => chorus.gameObject.SetActive(false));
     }
 

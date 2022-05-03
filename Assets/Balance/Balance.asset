@@ -18,6 +18,9 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 8300000, guid: 9e2be881b037f0e47aea5e618ac5f69f, type: 3}
     - {fileID: 8300000, guid: 0c08036d3a0be594f99917b1a21e39d6, type: 3}
+    - {fileID: 21300000, guid: 3653ec09ba1ed034ab2aaa5545fa4daa, type: 3}
+    - {fileID: 21300000, guid: 19d02cd5078389d46979d9a84b982db7, type: 3}
+    - {fileID: 21300000, guid: 6b86b6543faa8b0499ab9afd31804e02, type: 3}
     - {fileID: 8300000, guid: 1a00ce08f3182da4aa24b68eb040fe4f, type: 3}
     - {fileID: 21300000, guid: 4f523f4e7e05a6f43b580797fab4827a, type: 3}
     - {fileID: 21300000, guid: 828a7a13cfbc3874dac69e7b83a5349b, type: 3}
@@ -40,16 +43,14 @@ MonoBehaviour:
       Entry: 10
       Data: 1
     - Name: <trueQuote>k__BackingField
-      Entry: 1
-      Data: "\u041F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u0430\u044F \u0444\u0440\u0430\u0437\u0430"
+      Entry: 10
+      Data: 2
     - Name: <falseQuote1>k__BackingField
-      Entry: 1
-      Data: "\u041D\u0435\u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u0430\u044F
-        1"
+      Entry: 10
+      Data: 3
     - Name: <falseQuote2>k__BackingField
-      Entry: 1
-      Data: "\u041D\u0435\u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u0430\u044F
-        2"
+      Entry: 10
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -61,7 +62,7 @@ MonoBehaviour:
       Data: 0
     - Name: <temeLoop>k__BackingField
       Entry: 10
-      Data: 2
+      Data: 5
     - Name: _chorusParts
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[UnityEngine.Sprite, UnityEngine.CoreModule]],
@@ -71,16 +72,16 @@ MonoBehaviour:
       Data: 4
     - Name: 
       Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 10
-      Data: 4
-    - Name: 
-      Entry: 10
-      Data: 5
-    - Name: 
-      Entry: 10
       Data: 6
+    - Name: 
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 10
+      Data: 9
     - Name: 
       Entry: 13
       Data: 
@@ -98,7 +99,7 @@ MonoBehaviour:
       Data: 0
     - Name: <temeLoop>k__BackingField
       Entry: 10
-      Data: 7
+      Data: 10
     - Name: <maxSprayValue>k__BackingField
       Entry: 4
       Data: 50
@@ -107,7 +108,7 @@ MonoBehaviour:
       Data: 0.1
     - Name: <sprayMaterial>k__BackingField
       Entry: 10
-      Data: 8
+      Data: 11
     - Name: 
       Entry: 8
       Data: 
