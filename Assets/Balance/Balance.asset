@@ -102,7 +102,7 @@ MonoBehaviour:
       Data: 10
     - Name: <maxSprayValue>k__BackingField
       Entry: 4
-      Data: 50
+      Data: 18
     - Name: <sparaySpending>k__BackingField
       Entry: 4
       Data: 0.1
@@ -114,4 +114,4 @@ MonoBehaviour:
       Data: 
   <maxDistanceToShow>k__BackingField: 10
   <minDistanceToShow>k__BackingField: 4
-  <alphaChangeStep>k__BackingField: 0.01
+  <alphaChangeStep>k__BackingField: 0.02
