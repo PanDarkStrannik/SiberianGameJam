@@ -17,7 +17,7 @@ public class SecondTaskLogic : TaskLogic
 
     private Linker<Transform, ChorusPartPlate> _linker=new();
 
-    private void Start()
+    protected override void StartTaskInternal()
     {
         _taskData = GameManager.instance.balance.secondTask;
         switch (_chorusPartPlates.Count)
@@ -41,6 +41,7 @@ public class SecondTaskLogic : TaskLogic
         }
 
         InitializePlates();
+        PlayTem(_taskData);
     }
 
     private void InitializePlates()

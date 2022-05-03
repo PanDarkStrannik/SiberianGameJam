@@ -7,6 +7,8 @@ public class GameManager : SerializedMonoBehaviour
 {
     [field:SerializeField, InlineEditor] public BalanceData balance { get; }
 
+    [field:SerializeField] public GameUIManager uiManager { get; private set; }
+
     public static GameManager instance { get; private set; }
 
     public HealthManager healthManager { get; private set; }

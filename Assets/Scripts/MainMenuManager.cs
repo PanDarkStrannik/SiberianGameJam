@@ -8,7 +8,19 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button _buttonExit;
     void Start()
     {
-        _buttonStart.onClick.AddListener(GameSceneManager.instance.LoadGameScene);
-        _buttonExit.onClick.AddListener(GameSceneManager.instance.Quit);
+        _buttonStart.onClick.AddListener(StartGame);
+        _buttonExit.onClick.AddListener(Quit);
+    }
+
+    public void StartGame()
+    {
+        AudioManager.instance.StartGameClicked();
+        GameSceneManager.instance.LoadGameScene();
+    }
+
+    public void Quit()
+    {
+        AudioManager.instance.ButtonClickAudio();
+        GameSceneManager.instance.Quit();
     }
 }

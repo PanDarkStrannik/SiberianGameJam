@@ -46,19 +46,39 @@ public abstract class TaskLogic : MonoBehaviour
 
     public event Action<TaskLogic> onTaskFinished;
 
+    private TaskAnimation _taskAnimation;
+
     public abstract int taskSortNum { get; }
 
     protected TaskState currentState { get; private set; } = TaskState.InActive;
 
+    private void Awake()
+    {
+        _taskAnimation = GetComponentInChildren<TaskAnimation>();
+    }
+
     public void StartTask()
     {
         currentState = TaskState.Active;
+        StartTaskInternal();
+    }
+
+    protected abstract void StartTaskInternal();
+
+    protected void PlayTem(TaskData tem)
+    {
+        AudioManager.instance.StartTem(tem.temeStart, tem.temeLoop);
     }
 
     public void FinishTask()
     {
         currentState = TaskState.Finished;
         onTaskFinished?.Invoke(this);
+        _taskAnimation.StartAnimation(KillSelf);
+    }
+
+    private void KillSelf()
+    {
         Destroy(gameObject);
     }
 

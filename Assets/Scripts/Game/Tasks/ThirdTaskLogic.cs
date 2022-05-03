@@ -1,8 +1,10 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class ThirdTaskLogic : TaskLogic
 {
+    [SerializeField] private CinemachineVirtualCamera _camera;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Drawer _drawer;
     [SerializeField, Min(0.00001f)] private float _minDistanceBetweenPoints;
@@ -11,26 +13,36 @@ public class ThirdTaskLogic : TaskLogic
 
     private ThirdDoorTaskData _thirdTaskData;
 
-    private void Start()
+    private float _counter=0;
+
+    protected override void StartTaskInternal()
     {
         _thirdTaskData = GameManager.instance.balance.thirdTask;
         _drawer.Initialize(this);
+        PlayTem(_thirdTaskData);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if(currentState != TaskState.Active)
+            return;
         var startPoint = CalculateDotFromInputOnCanvas(eventData);
 
-        _currentLineRenderer = new GameObject("Line", typeof(LineRenderer)).GetComponent<LineRenderer>();
+        var newGameObject = new GameObject("Line", typeof(LineRenderer));
+        newGameObject.transform.SetParent(_drawer.transform);
+        _currentLineRenderer = newGameObject.GetComponent<LineRenderer>();
         _currentLineRenderer.material = _thirdTaskData.sprayMaterial;
         _currentLineRenderer.startWidth = 0.1f;
         _currentLineRenderer.endWidth = 0.1f;
         _currentLineRenderer.positionCount = 0;
+        _currentLineRenderer.useWorldSpace = false;
         AddPointToLineRenderer(startPoint);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (currentState != TaskState.Active)
+            return;
         var calculatedPoint = CalculateDotFromInputOnCanvas(eventData);
         var lastPoint = _currentLineRenderer.GetPosition(_currentLineRenderer.positionCount - 1);
         if (Vector3.Distance(lastPoint,calculatedPoint) >= _minDistanceBetweenPoints)
@@ -41,6 +53,8 @@ public class ThirdTaskLogic : TaskLogic
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (currentState != TaskState.Active)
+            return;
         var calculatePoint = CalculateDotFromInputOnCanvas(eventData);
         AddPointToLineRenderer(calculatePoint);
     }
@@ -50,6 +64,11 @@ public class ThirdTaskLogic : TaskLogic
     {
         _currentLineRenderer.positionCount++;
         _currentLineRenderer.SetPosition(_currentLineRenderer.positionCount - 1, point);
+        _counter += _thirdTaskData.sparaySpending;
+        if (!(_counter >= _thirdTaskData.maxSprayValue)) return;
+        AudioManager.instance.Win();
+        FinishTask();
+        _camera.Priority = 11;
     }
 
     private Vector3 CalculateDotFromInputOnCanvas(PointerEventData eventData)
