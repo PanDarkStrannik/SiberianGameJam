@@ -1128,7 +1128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startScene: 0
   _startAnimScene: 1
-  _gameScene: 3
+  _gameScene: 4
   _endScene: 2
 --- !u!4 &1248050651
 Transform:

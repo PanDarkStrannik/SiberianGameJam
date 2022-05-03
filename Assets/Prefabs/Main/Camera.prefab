@@ -263,3 +263,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementStep: 0.3
+  distanceToShowTask: 0.75

@@ -4,7 +4,6 @@ using UnityEngine.EventSystems;
 
 public class ThirdTaskLogic : TaskLogic
 {
-    [SerializeField] private CinemachineVirtualCamera _camera;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Drawer _drawer;
     [SerializeField, Min(0.00001f)] private float _minDistanceBetweenPoints;
@@ -22,14 +21,22 @@ public class ThirdTaskLogic : TaskLogic
         PlayTem(_thirdTaskData);
     }
 
+    protected override void ShowTaskInternal()
+    {
+        _drawer.gameObject.SetActive(true);
+    }
+
+    protected override void HideTaskInternal()
+    {
+        _drawer.gameObject.SetActive(false);
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(currentState != TaskState.Active)
-            return;
         var startPoint = CalculateDotFromInputOnCanvas(eventData);
 
         var newGameObject = new GameObject("Line", typeof(LineRenderer));
-        newGameObject.transform.SetParent(_drawer.transform);
+        newGameObject.transform.SetParent(_drawer.transform.parent);
         _currentLineRenderer = newGameObject.GetComponent<LineRenderer>();
         _currentLineRenderer.material = _thirdTaskData.sprayMaterial;
         _currentLineRenderer.startWidth = 0.1f;
@@ -41,8 +48,6 @@ public class ThirdTaskLogic : TaskLogic
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (currentState != TaskState.Active)
-            return;
         var calculatedPoint = CalculateDotFromInputOnCanvas(eventData);
         var lastPoint = _currentLineRenderer.GetPosition(_currentLineRenderer.positionCount - 1);
         if (Vector3.Distance(lastPoint,calculatedPoint) >= _minDistanceBetweenPoints)
@@ -53,8 +58,6 @@ public class ThirdTaskLogic : TaskLogic
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (currentState != TaskState.Active)
-            return;
         var calculatePoint = CalculateDotFromInputOnCanvas(eventData);
         AddPointToLineRenderer(calculatePoint);
     }
@@ -68,7 +71,6 @@ public class ThirdTaskLogic : TaskLogic
         if (!(_counter >= _thirdTaskData.maxSprayValue)) return;
         AudioManager.instance.Win();
         FinishTask();
-        _camera.Priority = 11;
     }
 
     private Vector3 CalculateDotFromInputOnCanvas(PointerEventData eventData)
