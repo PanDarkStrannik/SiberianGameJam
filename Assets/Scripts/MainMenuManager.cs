@@ -8,8 +8,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button _buttonExit;
     void Start()
     {
-        _buttonStart.onClick.AddListener(StartGame);
-        _buttonExit.onClick.AddListener(Quit);
+        _buttonStart?.onClick.AddListener(StartGame);
+        _buttonExit?.onClick.AddListener(Quit);
     }
 
     public void StartGame()

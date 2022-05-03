@@ -19,6 +19,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 9e2be881b037f0e47aea5e618ac5f69f, type: 3}
     - {fileID: 8300000, guid: 0c08036d3a0be594f99917b1a21e39d6, type: 3}
     - {fileID: 8300000, guid: 1a00ce08f3182da4aa24b68eb040fe4f, type: 3}
+    - {fileID: 21300000, guid: 4f523f4e7e05a6f43b580797fab4827a, type: 3}
+    - {fileID: 21300000, guid: 828a7a13cfbc3874dac69e7b83a5349b, type: 3}
+    - {fileID: 21300000, guid: 08697332c782dcf4983b80fa292131f2, type: 3}
+    - {fileID: 21300000, guid: 1234ace8bf2920a458eb95484f3ba3a7, type: 3}
     - {fileID: 8300000, guid: d81a656cec573494c958ae6fe4e3445d, type: 3}
     - {fileID: 2100000, guid: 727263010e343a848b22acba6ef5dfa5, type: 2}
     SerializedBytesString: 
@@ -60,22 +64,23 @@ MonoBehaviour:
       Data: 2
     - Name: _chorusParts
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+      Data: 2|System.Collections.Generic.List`1[[UnityEngine.Sprite, UnityEngine.CoreModule]],
+        mscorlib
     - Name: 
       Entry: 12
       Data: 4
     - Name: 
-      Entry: 1
-      Data: 1
-    - Name: 
-      Entry: 1
-      Data: 2
-    - Name: 
-      Entry: 1
+      Entry: 10
       Data: 3
     - Name: 
-      Entry: 1
+      Entry: 10
       Data: 4
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 10
+      Data: 6
     - Name: 
       Entry: 13
       Data: 
@@ -93,7 +98,7 @@ MonoBehaviour:
       Data: 0
     - Name: <temeLoop>k__BackingField
       Entry: 10
-      Data: 3
+      Data: 7
     - Name: <maxSprayValue>k__BackingField
       Entry: 4
       Data: 50
@@ -102,7 +107,7 @@ MonoBehaviour:
       Data: 0.1
     - Name: <sprayMaterial>k__BackingField
       Entry: 10
-      Data: 4
+      Data: 8
     - Name: 
       Entry: 8
       Data: 

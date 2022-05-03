@@ -22,9 +22,9 @@ public class FirstDoorTaskData : TaskData
 [HideReferenceObjectPicker]
 public class SecondDoorTaskData : TaskData
 {
-    [SerializeField, TabGroup("Task"), TextArea, ValidateInput(nameof(ValidateList), "Error! Chorus parts greater or less 4")] 
-    private List<string> _chorusParts = new(4);
-    public IReadOnlyList<string> chorusParts => _chorusParts;
+    [SerializeField, TabGroup("Task"), ValidateInput(nameof(ValidateList), "Error! Chorus parts greater or less 4")] 
+    private List<Sprite> _chorusParts = new(4);
+    public IReadOnlyList<Sprite> chorusParts => _chorusParts;
 
     private bool ValidateList()
     {

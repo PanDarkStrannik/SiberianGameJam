@@ -1,27 +1,27 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(RectTransform))]
+[RequireComponent(typeof(RectTransform),typeof(Image))]
 public class ChorusPartPlate : MonoBehaviour,IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField] private TMP_Text _text;
     private SecondTaskLogic _secondTaskLogic;
     private RectTransform _rectTransform;
     public Rect worldRect => _rectTransform.GetWorldRect();
 
-    public string chorusPart { get; private set; }
+    public Sprite chorusPart { get; private set; }
 
     private void Awake()
     {
         _rectTransform = (RectTransform)transform;
     }
 
-    public void Initialize(SecondTaskLogic secondTaskLogic, string chorusPart)
+    public void Initialize(SecondTaskLogic secondTaskLogic, Sprite chorusPart)
     {
         _secondTaskLogic = secondTaskLogic;
         this.chorusPart = chorusPart;
-        _text.text = chorusPart;
+        var visual = GetComponent<Image>();
+        visual.sprite = chorusPart;
     }
 
     public void OnBeginDrag(PointerEventData eventData)

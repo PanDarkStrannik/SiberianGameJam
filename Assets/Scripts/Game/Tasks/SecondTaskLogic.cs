@@ -56,7 +56,7 @@ public class SecondTaskLogic : TaskLogic
 
     private void InitializePlates()
     {
-        var tempParts = new List<string>(_taskData.chorusParts);
+        var tempParts = new List<Sprite>(_taskData.chorusParts);
         foreach (var plate in _chorusPartPlates)
         {
             var rand = Random.Range(0, tempParts.Count);
