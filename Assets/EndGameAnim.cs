@@ -20,6 +20,13 @@ public class EndGameAnim : MonoBehaviour
         _imageToIncrease.gameObject.SetActive(true);
         var seq = DOTween.Sequence();
         seq.Append(_imageToIncrease.DOScale(new Vector3(10f, 10f, 10f), _duration));
-        seq.onComplete= GameSceneManager.instance.StartNextScene;
+        seq.onComplete = OnComplete;
+    }
+
+    private void OnComplete()
+    {
+        GameManager.instance.taskManager.onGamePassed -= OnGameEnd;
+        _imageToIncrease.transform.localScale = new Vector3(10f, 10f, 10f);
+        GameSceneManager.instance.StartNextScene();
     }
 }

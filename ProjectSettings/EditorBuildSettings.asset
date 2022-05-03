@@ -18,9 +18,6 @@ EditorBuildSettings:
     path: Assets/Balance/Scenes/ReallyGameScene.unity
     guid: 29ce58a2383dcd1458bfa2f06c2fc77e
   - enabled: 1
-    path: Assets/Balance/Scenes/GameScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Balance/Scenes/EndAnimScene.unity
     guid: 8d35751aea57ecc4fbd46ddd5a411100
   m_configObjects: {}
