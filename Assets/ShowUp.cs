@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ShowUp : MonoBehaviour
 {
-    private Image[] _images;
+    private SpriteRenderer[] _images;
 
-    private Dictionary<Image, Color> _imageToColor=new();
+    private Dictionary<SpriteRenderer, Color> _imageToColor=new();
 
     private Camera _mainCamera;
 
@@ -19,7 +18,7 @@ public class ShowUp : MonoBehaviour
 
     private void Awake()
     {
-        _images = GetComponentsInChildren<Image>();
+        _images = GetComponentsInChildren<SpriteRenderer>();
         _mainCamera=Camera.main;
         foreach (var image in _images)
         {
