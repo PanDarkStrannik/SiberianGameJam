@@ -1,4 +1,3 @@
-using Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -23,12 +22,12 @@ public class ThirdTaskLogic : TaskLogic
 
     protected override void ShowTaskInternal()
     {
-        _drawer.gameObject.SetActive(true);
+       _drawer.gameObject.SetActive(true);
     }
 
     protected override void HideTaskInternal()
     {
-        _drawer.gameObject.SetActive(false);
+       _drawer.gameObject.SetActive(false);
     }
 
     public void OnBeginDrag(PointerEventData eventData)

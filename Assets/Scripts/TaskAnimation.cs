@@ -11,7 +11,7 @@ public class TaskAnimation : MonoBehaviour
     public void StartAnimation(Action actionAfterAnim)
     {
         var seq = DOTween.Sequence();
-        seq.Append(transform.DORotateQuaternion(endPostion.rotation, 1f));
+        seq.Append(transform.DORotateQuaternion(endPostion.rotation, 1.3f));
         seq.onComplete = actionAfterAnim.Invoke;
     }
 

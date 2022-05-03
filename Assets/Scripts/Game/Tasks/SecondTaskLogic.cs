@@ -111,7 +111,6 @@ public class SecondTaskLogic : TaskLogic
             {
                 _linker.Add(firstOverlaps, plate);
                 MovePlate(plate, firstOverlaps.transform.position);
-                Debug.Log("Guessed!");
                 if (_linker.Count == 4)
                 {
                     FinishTask();
