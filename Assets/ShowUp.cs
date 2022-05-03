@@ -29,13 +29,14 @@ public class ShowUp : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(_mainCamera.transform.position, transform.position) > balance.distanceToShow)
+        var distance = Vector3.Distance(_mainCamera.transform.position, transform.position);
+        if ( distance<= balance.maxDistanceToShow && distance >= balance.minDistanceToShow)
         {
-            DecreaseAlpha();
+            IncreaseAlpha();
         }
         else
         {
-            IncreaseAlpha();
+            DecreaseAlpha();
         }
     }
 

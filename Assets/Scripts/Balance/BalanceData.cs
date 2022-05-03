@@ -15,7 +15,11 @@ public class BalanceData : SerializedScriptableObject
     public ThirdDoorTaskData thirdTask { get; } = new();
 
     [field: SerializeField, TabGroup("ShowUp")]
-    public float distanceToShow { get; private set; }
+    public float maxDistanceToShow { get; private set; }
+    
+    [field:SerializeField, TabGroup("ShowUp")]
+    public float minDistanceToShow { get; private set; }
+
     [field: SerializeField, TabGroup("ShowUp")]
     public float alphaChangeStep { get; private set; }
 }
