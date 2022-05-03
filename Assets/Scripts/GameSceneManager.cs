@@ -70,7 +70,7 @@ public class GameSceneManager : MonoBehaviour
     {
         Application.Quit();
     }
-    private static void LoadScene(int sceneIndex)
+    public static void LoadScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
     }
