@@ -1,8 +1,10 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class ThirdTaskLogic : TaskLogic
 {
+    [SerializeField] private CinemachineVirtualCamera _camera;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Drawer _drawer;
     [SerializeField, Min(0.00001f)] private float _minDistanceBetweenPoints;
@@ -63,8 +65,10 @@ public class ThirdTaskLogic : TaskLogic
         _currentLineRenderer.positionCount++;
         _currentLineRenderer.SetPosition(_currentLineRenderer.positionCount - 1, point);
         _counter += _thirdTaskData.sparaySpending;
-        if(_counter >= _thirdTaskData.maxSprayValue)
-            FinishTask();
+        if (!(_counter >= _thirdTaskData.maxSprayValue)) return;
+        AudioManager.instance.Win();
+        FinishTask();
+        _camera.Priority = 11;
     }
 
     private Vector3 CalculateDotFromInputOnCanvas(PointerEventData eventData)
