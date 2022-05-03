@@ -29,11 +29,17 @@ public class CameraInputLogic : MonoBehaviour
     private void Start()
     {
         _taskManager = GameManager.instance.taskManager;
+        _taskManager.onGamePassed += OnGameEnd;
         _taskManager.onTaskChanged += CalculatePath;
         CalculatePath();
     }
 
-
+    private void OnGameEnd()
+    {
+        _taskManager.onGamePassed -= OnGameEnd;
+        _taskManager.onTaskChanged -= CalculatePath;
+        Destroy(gameObject);
+    }
 
     private void CalculatePath()
     {
