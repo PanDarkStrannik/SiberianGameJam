@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -15,6 +16,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField, AssetsOnly] private AudioClip _win;
 
     public static AudioManager instance { get; private set; }
+
+    private CancellationTokenSource _cancelTask =new();
+
 
     private void Awake()
     {
@@ -59,7 +63,9 @@ public class AudioManager : MonoBehaviour
     {
         _temSource.clip = null;
         _shotSource.PlayOneShot(shotStart);
-        await Task.Delay(TimeSpan.FromSeconds(shotStart.length));
+        await Task.Delay(TimeSpan.FromSeconds(shotStart.length), _cancelTask.Token);
+        if(_cancelTask.Token.IsCancellationRequested)
+            return;
         _temSource.clip = looped;
         _temSource.Play();
     }
@@ -74,6 +80,11 @@ public class AudioManager : MonoBehaviour
     {
         _temSource.clip=clip;
         _temSource.Play();
+    }
+
+    private void OnApplicationQuit()
+    {
+        _cancelTask.Cancel();
     }
 
 }

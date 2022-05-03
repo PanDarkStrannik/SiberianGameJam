@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
@@ -34,6 +33,17 @@ public class FirstTaskLogic : TaskLogic
         RandomInitialize(_taskData.falseQuote2);
         PlayTem(_taskData);
     }
+
+    protected override void ShowTaskInternal()
+    {
+        _quotes.ForEach(quote=>quote.gameObject.SetActive(true));
+    }
+
+    protected override void HideTaskInternal()
+    {
+        _quotes.ForEach(quote => quote.gameObject.SetActive(false));
+    }
+
     private void RandomInitialize(string quote)
     {
         var newRandomList = _quotes.Except(_alreadyInit).ToList();

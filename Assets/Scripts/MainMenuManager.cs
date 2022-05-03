@@ -15,7 +15,7 @@ public class MainMenuManager : MonoBehaviour
     public void StartGame()
     {
         AudioManager.instance.StartGameClicked();
-        GameSceneManager.instance.LoadGameScene();
+        GameSceneManager.instance.LoadStartAnimScene();
     }
 
     public void Quit()

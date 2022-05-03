@@ -44,6 +44,16 @@ public class SecondTaskLogic : TaskLogic
         PlayTem(_taskData);
     }
 
+    protected override void ShowTaskInternal()
+    {
+        _chorusPartPlates.ForEach(chorus=>chorus.gameObject.SetActive(true));
+    }
+
+    protected override void HideTaskInternal()
+    {
+        _chorusPartPlates.ForEach(chorus => chorus.gameObject.SetActive(false));
+    }
+
     private void InitializePlates()
     {
         var tempParts = new List<string>(_taskData.chorusParts);

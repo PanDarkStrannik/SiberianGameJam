@@ -60,11 +60,17 @@ public class GameSceneManager : MonoBehaviour
         LoadScene(_endScene);
     }
 
+    public void StartNextScene()
+    {
+        var nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        LoadScene(nextScene);
+    }
+
     public void Quit()
     {
         Application.Quit();
     }
-    private static void LoadScene(int sceneIndex)
+    public static void LoadScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
     }

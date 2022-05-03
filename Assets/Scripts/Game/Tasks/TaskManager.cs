@@ -31,6 +31,7 @@ public class TaskManager
     {
         if (gamePassed)
         {
+            currentTask = null;
             onGamePassed?.Invoke();
             return;
         }
@@ -50,7 +51,7 @@ public abstract class TaskLogic : MonoBehaviour
 
     public abstract int taskSortNum { get; }
 
-    protected TaskState currentState { get; private set; } = TaskState.InActive;
+    protected TaskState currentState { get; private set; }
 
     private void Awake()
     {
@@ -61,9 +62,31 @@ public abstract class TaskLogic : MonoBehaviour
     {
         currentState = TaskState.Active;
         StartTaskInternal();
+        SetShow(false);
     }
 
+
+    public void SetShow(bool showing)
+    {
+        switch (showing)
+        {
+            case true when currentState != TaskState.Showing:
+                ShowTaskInternal();
+                currentState = TaskState.Showing;
+                break;
+            case false when currentState != TaskState.Hiding:
+                HideTaskInternal();
+                currentState = TaskState.Hiding;
+                break;
+        }
+    }
+
+
     protected abstract void StartTaskInternal();
+
+    protected abstract void ShowTaskInternal();
+
+    protected abstract void HideTaskInternal();
 
     protected void PlayTem(TaskData tem)
     {
@@ -72,7 +95,6 @@ public abstract class TaskLogic : MonoBehaviour
 
     public void FinishTask()
     {
-        currentState = TaskState.Finished;
         onTaskFinished?.Invoke(this);
         _taskAnimation.StartAnimation(KillSelf);
     }
@@ -84,8 +106,8 @@ public abstract class TaskLogic : MonoBehaviour
 
     public enum TaskState
     {
-        InActive,
         Active,
-        Finished
+        Hiding,
+        Showing
     }
 }
