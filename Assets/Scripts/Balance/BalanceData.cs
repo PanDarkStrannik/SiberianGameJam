@@ -13,6 +13,11 @@ public class BalanceData : SerializedScriptableObject
 
     [field: SerializeField, TabGroup("Tasks")]
     public ThirdDoorTaskData thirdTask { get; } = new();
+
+    [field: SerializeField, TabGroup("ShowUp")]
+    public float distanceToShow { get; private set; }
+    [field: SerializeField, TabGroup("ShowUp")]
+    public float alphaChangeStep { get; private set; }
 }
 
 

@@ -11,9 +11,7 @@ public class ShowUp : MonoBehaviour
 
     private Camera _mainCamera;
 
-    private const int toStartShow = 1;
-
-    private const float alphaChangeStep = 0.01f;
+    private BalanceData balance => GameManager.instance.balance;
 
 
     private void Awake()
@@ -31,7 +29,7 @@ public class ShowUp : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(_mainCamera.transform.position, transform.position) > toStartShow)
+        if (Vector3.Distance(_mainCamera.transform.position, transform.position) > balance.distanceToShow)
         {
             DecreaseAlpha();
         }
@@ -48,7 +46,7 @@ public class ShowUp : MonoBehaviour
         foreach (var (image, color) in _imageToColor)
         {
             var prevColorAlpha = image.color.a;
-            var changeAplha = Math.Clamp(prevColorAlpha - alphaChangeStep, 0, 1);
+            var changeAplha = Math.Clamp(prevColorAlpha + balance.alphaChangeStep, 0, 1);
             image.color = new Color(color.r, color.g, color.b, changeAplha);
         }
     }
@@ -60,7 +58,7 @@ public class ShowUp : MonoBehaviour
         foreach (var (image, color) in _imageToColor)
         {
             var prevColorAlpha = image.color.a;
-            var changeAplha = Math.Clamp(prevColorAlpha + alphaChangeStep, 0, 1);
+            var changeAplha = Math.Clamp(prevColorAlpha - balance.alphaChangeStep, 0, 1);
             image.color = new Color(color.r, color.g, color.b, changeAplha);
         }
     }
