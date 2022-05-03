@@ -13,21 +13,26 @@ public class ThirdTaskLogic : TaskLogic
 
     private float _counter=0;
 
+    private BallonScript ballonScript;
+
     protected override void StartTaskInternal()
     {
         _thirdTaskData = GameManager.instance.balance.thirdTask;
         _drawer.Initialize(this);
         PlayTem(_thirdTaskData);
+        ballonScript = BallonScript.instance;
     }
 
     protected override void ShowTaskInternal()
     {
        _drawer.gameObject.SetActive(true);
+       ballonScript.gameObject.SetActive(true);
     }
 
     protected override void HideTaskInternal()
     {
        _drawer.gameObject.SetActive(false);
+       ballonScript.gameObject.SetActive(false);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -67,8 +72,10 @@ public class ThirdTaskLogic : TaskLogic
         _currentLineRenderer.positionCount++;
         _currentLineRenderer.SetPosition(_currentLineRenderer.positionCount - 1, point);
         _counter += _thirdTaskData.sparaySpending;
+        ballonScript.ChangeValue(1 - _counter / _thirdTaskData.maxSprayValue);
         if (!(_counter >= _thirdTaskData.maxSprayValue)) return;
         AudioManager.instance.Win();
+        ballonScript.gameObject.SetActive(false);
         FinishTask();
     }
 
