@@ -112,6 +112,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  <maxDistanceToShow>k__BackingField: 10
+  <maxDistanceToShow>k__BackingField: 20
   <minDistanceToShow>k__BackingField: 4
   <alphaChangeStep>k__BackingField: 0.02
